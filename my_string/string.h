@@ -25,7 +25,7 @@ namespace bit
 		{
 			return _str + _size;
 		}
-		//// 无参构造
+		//// 薏喂
 		//string()
 		//	: _str(new char[1])
 		//	,_size(0)
@@ -33,7 +33,7 @@ namespace bit
 		//{
 		//	_str[0] = '\0';
 		//}
-		//// 带参构造
+		//// 喂
 		//string(const char* str)
 		//	:_size(strlen(str))
 		//	,_str(new char[strlen(str) + 1])
@@ -41,7 +41,7 @@ namespace bit
 		//{
 		//	strcpy(_str, str);
 		//}
-		// 半缺省
+		// 缺省
 		string(const char* str = "")
 			:_size(strlen(str))
 		{
@@ -49,7 +49,7 @@ namespace bit
 			_str = new char[_capacity + 1];
 			strcpy(_str, str);
 		}
-		// 析构
+		// 
 		~string()
 		{
 			delete[] _str;
@@ -60,7 +60,7 @@ namespace bit
 		{
 			return _str;
 		}
-		// 遍历
+		// 
 		size_t size() const
 		{
 			return _size;
@@ -191,5 +191,6 @@ namespace bit
 		s1 += 'x';
 		s1 += "yyyyy";
 		cout << s1.c_str() << endl;
+        
 	}
 }
