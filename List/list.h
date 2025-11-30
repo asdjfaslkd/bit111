@@ -10,10 +10,11 @@ namespace bit
         ListNode<T> *_prev;
         T _date;
 
-        ListNode(const T &x = T())
-            : _next(nullptr), _prev(nullptr), _date(x)
-        {
-        }
+        ListNode(const T& x = T())
+            : _next(nullptr)
+            , _prev(nullptr)
+            , _date(x)
+        {}
     };
 
     template <class T>
@@ -24,8 +25,7 @@ namespace bit
         Node *_node;
         ListIterator(Node *node)
             : _node(node)
-        {
-        }
+        {}
 
         // *it
         T &operator*()
