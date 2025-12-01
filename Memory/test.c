@@ -1,20 +1,20 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-//#include<stdio.h>
-//#include<string.h>
-//#include<assert.h>
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
 
-// ×Ö·û×ª»»
+// å­—ç¬¦è½¬æ¢
 //int main()
 //{
-//	int ret = toupper('a');//Ğ¡Ğ´×ÖÄ¸×ª´óĞ´
+//	int ret = toupper('a');//å°å†™å­—æ¯è½¬å¤§å†™
 //	printf("%c\n", ret);
-//	ret = tolower(ret);//´óĞ´×ÖÄ¸×ªĞ¡Ğ´
+//	ret = tolower(ret);//å¤§å†™å­—æ¯è½¬å°å†™
 //	printf("%c\n", ret);
 //	return 0;
 //}
 
-// °Ñ×Ö·û´®È«²¿¸Ä³ÉĞ¡Ğ´
+// æŠŠå­—ç¬¦ä¸²å…¨éƒ¨æ”¹æˆå°å†™
 //int main()
 //{
 //	char arr[] = "Test String.\n";
@@ -32,7 +32,7 @@
 //}
 
 
-// Ä£ÄâÊµÏÖmemcpy
+// æ¨¡æ‹Ÿå®ç°memcpy
 //void* my_memcpy(void* dest, const void* src, size_t sz)
 //{
 //	assert(dest && src);
@@ -49,20 +49,20 @@
 //{
 //	int arr1[10] = { 0 };
 //	int arr2[] = { 1,2,3,4,5 };
-//	// °Ñarr2ÖĞµÄÇ°5¸öÕûÊıµÄÊı¾İ ¿½±´·ÅÔÚarr1ÖĞ
+//	// æŠŠarr2ä¸­çš„å‰5ä¸ªæ•´æ•°çš„æ•°æ® æ‹·è´æ”¾åœ¨arr1ä¸­
 //	my_memcpy(arr1, arr2, 20);
 //	return 0;
 //}
 //
 
-// Ä£ÄâÊµÏÖmemmove
+// æ¨¡æ‹Ÿå®ç°memmove
 //void* my_memmove(void* dest, const void* src, size_t sz)
 //{
 //	assert(dest && src);
 //	void* ret = dest;
 //	if (dest < src)
 //	{
-//		// Ç°->ºó
+//		// å‰->å
 //		while (sz--)
 //		{
 //			*(char*)dest = *(char*)src;
@@ -72,7 +72,7 @@
 //	}
 //	else
 //	{
-//		// ºó->Ç°
+//		// å->å‰
 //		while (sz--)
 //		{
 //			*((char*)dest + sz) = *((char*)src + sz);
@@ -99,7 +99,7 @@
 
 //int main()
 //{
-//	// ÉêÇëÒ»¿é¿Õ¼ä,ÓÃÀ´´æ·Å10¸öÕûĞÎ
+//	// ç”³è¯·ä¸€å—ç©ºé—´,ç”¨æ¥å­˜æ”¾10ä¸ªæ•´å½¢
 //	// malloc 
 //	int* p = (int*)malloc(10 * sizeof(int));
 //	if (p == NULL)
