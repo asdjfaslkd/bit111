@@ -219,6 +219,33 @@ void test_priority_queue3()
 	}
 	cout << endl;
 }
+void test_priority_queue4()
+{
+	bit::priority_queue<Date, vector<Date>, bit::greater<Date>> pq;
+	Date d1(2025, 12, 7);
+	pq.push(d1);
+	pq.push(Date(2025, 12, 6));
+	pq.push({2025, 12, 5});
+
+	while (!pq.empty())
+	{
+		cout << pq.top() << " ";
+		pq.pop();
+	}
+	cout << endl;
+
+	bit::priority_queue<Date *, vector<Date *>, GreaterPDate> pqptr;
+	pqptr.push(new Date(2025, 12, 14));
+	pqptr.push(new Date(2025, 12, 11));
+	pqptr.push(new Date(2025, 12, 15));
+
+	while (!pqptr.empty())
+	{
+		cout << *(pqptr.top()) << " ";
+		pqptr.pop();
+	}
+	cout << endl;
+}
 // 仿函数
 // template<class T>
 // struct Less
