@@ -145,7 +145,6 @@ void test_priority_queue2()
 	pq.push(8);
 	pq.push(8);
 	pq.push(8);
-	pq.push(8);
 
 	while (!pq.empty())
 	{
