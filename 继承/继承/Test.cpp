@@ -1,83 +1,136 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿//#define _CRT_SECURE_NO_WARNINGS 1
+//
+//#include<iostream>
+//using namespace std;
+////åŸºç±»
+//class Person
+//{
+//public:
+//	//æž„é€ å‡½æ•°
+//	Person(const string& name = "peter")
+//		:_name(name)
+//	{
+//		cout << "Person()" << endl;
+//	}
+//	//æ‹·è´æž„é€ å‡½æ•°
+//	Person(const Person& p)
+//		:_name(p._name)
+//	{
+//		cout << "Person(const Person& p)" << endl;
+//	}
+//	//èµ‹å€¼è¿ç®—ç¬¦é‡è½½å‡½æ•°
+//	Person& operator=(const Person& p)
+//	{
+//		cout << "Person& operator=(const Person& p)" << endl;
+//		if (this != &p)
+//		{
+//			_name = p._name;
+//		}
+//		return *this;
+//	}
+//	//æžæž„å‡½æ•°
+//	~Person()
+//	{
+//		cout << "~Person()" << endl;
+//	}
+//private:
+//	string _name; //å§“å
+//};
+////æ´¾ç”Ÿç±»
+//class Student : public Person
+//{
+//public:
+//	//æž„é€ å‡½æ•°
+//	Student(const string& name, int id)
+//		//:Person(name) //è°ƒç”¨åŸºç±»çš„æž„é€ å‡½æ•°åˆå§‹åŒ–åŸºç±»çš„é‚£ä¸€éƒ¨åˆ†æˆå‘˜
+//		:Person(name)
+//		, _id(id) //åˆå§‹åŒ–æ´¾ç”Ÿç±»çš„æˆå‘˜
+//	{
+//		cout << "Student()" << endl;
+//	}
+//	//æ‹·è´æž„é€ å‡½æ•°
+//	Student(const Student& s)
+//		:Person(s) //è°ƒç”¨åŸºç±»çš„æ‹·è´æž„é€ å‡½æ•°å®ŒæˆåŸºç±»æˆå‘˜çš„æ‹·è´æž„é€ 
+//		, _id(s._id) //æ‹·è´æž„é€ æ´¾ç”Ÿç±»çš„æˆå‘˜
+//	{
+//		cout << "Student(const Student& s)" << endl;
+//	}
+//	//èµ‹å€¼è¿ç®—ç¬¦é‡è½½å‡½æ•°
+//	Student& operator=(const Student& s)
+//	{
+//		cout << "Student& operator=(const Student& s)" << endl;
+//		if (this != &s)
+//		{
+//			Person::operator=(s); //è°ƒç”¨åŸºç±»çš„operator=å®ŒæˆåŸºç±»æˆå‘˜çš„èµ‹å€¼
+//			_id = s._id; //å®Œæˆæ´¾ç”Ÿç±»æˆå‘˜çš„èµ‹å€¼
+//		}
+//		return *this;
+//	}
+//	//æžæž„å‡½æ•°
+//	~Student()
+//	{
+//		cout << "~Student()" << endl;
+//		//æ´¾ç”Ÿç±»çš„æžæž„å‡½æ•°ä¼šåœ¨è¢«è°ƒç”¨å®ŒæˆåŽè‡ªåŠ¨è°ƒç”¨åŸºç±»çš„æžæž„å‡½æ•°
+//	}
+//private:
+//	int _id; //å­¦å·
+//};
+//
+//int main()
+//{
+//	Student st("xxxx", 1);
+//
+//}
 
-#include<iostream>
-using namespace std;
-//»ùÀà
 class Person
 {
 public:
-	//¹¹Ôìº¯Êý
-	Person(const string& name = "peter")
-		:_name(name)
+	void Print()
 	{
-		cout << "Person()" << endl;
+		cout << _name << endl;
 	}
-	//¿½±´¹¹Ôìº¯Êý
-	Person(const Person& p)
-		:_name(p._name)
-	{
-		cout << "Person(const Person& p)" << endl;
-	}
-	//¸³ÖµÔËËã·ûÖØÔØº¯Êý
-	Person& operator=(const Person& p)
-	{
-		cout << "Person& operator=(const Person& p)" << endl;
-		if (this != &p)
-		{
-			_name = p._name;
-		}
-		return *this;
-	}
-	//Îö¹¹º¯Êý
-	~Person()
-	{
-		cout << "~Person()" << endl;
-	}
+protected:
+	string _name; // å§“å
 private:
-	string _name; //ÐÕÃû
+	int _age; // å¹´é¾„
 };
-//ÅÉÉúÀà
+//class Student : protected Person
+//class Student : private Person
+//class Student : public Person
+//{
+//protected:
+//	int _stunum; // å­¦å·
+//};
+//class Person
+//{
+//protected:
+//	string _name; // å§“å
+//	string _sex; Â // æ€§åˆ«
+//	int _age; // å¹´é¾„
+//};
+
 class Student : public Person
 {
 public:
-	//¹¹Ôìº¯Êý
-	Student(const string& name, int id)
-		//:Person(name) //µ÷ÓÃ»ùÀàµÄ¹¹Ôìº¯Êý³õÊ¼»¯»ùÀàµÄÄÇÒ»²¿·Ö³ÉÔ±
-		:Person(name)
-		, _id(id) //³õÊ¼»¯ÅÉÉúÀàµÄ³ÉÔ±
-	{
-		cout << "Student()" << endl;
-	}
-	//¿½±´¹¹Ôìº¯Êý
-	Student(const Student& s)
-		:Person(s) //µ÷ÓÃ»ùÀàµÄ¿½±´¹¹Ôìº¯ÊýÍê³É»ùÀà³ÉÔ±µÄ¿½±´¹¹Ôì
-		, _id(s._id) //¿½±´¹¹ÔìÅÉÉúÀàµÄ³ÉÔ±
-	{
-		cout << "Student(const Student& s)" << endl;
-	}
-	//¸³ÖµÔËËã·ûÖØÔØº¯Êý
-	Student& operator=(const Student& s)
-	{
-		cout << "Student& operator=(const Student& s)" << endl;
-		if (this != &s)
-		{
-			Person::operator=(s); //µ÷ÓÃ»ùÀàµÄoperator=Íê³É»ùÀà³ÉÔ±µÄ¸³Öµ
-			_id = s._id; //Íê³ÉÅÉÉúÀà³ÉÔ±µÄ¸³Öµ
-		}
-		return *this;
-	}
-	//Îö¹¹º¯Êý
-	~Student()
-	{
-		cout << "~Student()" << endl;
-		//ÅÉÉúÀàµÄÎö¹¹º¯Êý»áÔÚ±»µ÷ÓÃÍê³Éºó×Ô¶¯µ÷ÓÃ»ùÀàµÄÎö¹¹º¯Êý
-	}
-private:
-	int _id; //Ñ§ºÅ
+	int _No; // å­¦å·
 };
-
-int main()
+void Test()
 {
-	Student st("xxxx", 1);
+	Student sobj;
+	// 1.å­ç±»å¯¹è±¡å¯ä»¥èµ‹å€¼ç»™çˆ¶ç±»å¯¹è±¡/æŒ‡é’ˆ/å¼•ç”¨
+	Person pobj = sobj;
+	Person* pp = &sobj;
+	Person& rp = sobj;
 
+	//2.åŸºç±»å¯¹è±¡ä¸èƒ½èµ‹å€¼ç»™æ´¾ç”Ÿç±»å¯¹è±¡
+	sobj = pobj;
+
+	// 3.åŸºç±»çš„æŒ‡é’ˆå¯ä»¥é€šè¿‡å¼ºåˆ¶ç±»åž‹è½¬æ¢èµ‹å€¼ç»™æ´¾ç”Ÿç±»çš„æŒ‡é’ˆ
+	pp = &sobj
+		Student * ps1 = (Student*)pp; // è¿™ç§æƒ…å†µè½¬æ¢æ—¶å¯ä»¥çš„ã€‚
+	ps1->_No = 10;
+
+	pp = &pobj;
+	Student* ps2 = (Student*)pp; // è¿™ç§æƒ…å†µè½¬æ¢æ—¶è™½ç„¶å¯ä»¥ï¼Œä½†æ˜¯ä¼šå­˜åœ¨è¶Šç•Œè®¿é—®çš„é—®é¢˜
+		ps2->_No = 10;
 }
