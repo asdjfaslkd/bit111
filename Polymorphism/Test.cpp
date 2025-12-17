@@ -208,33 +208,352 @@ using namespace std;
 //     return 0;
 // }
 
-class Person
-{
-public:
-    virtual void BuyTicket()
-    {
-        cout << "买票-全价" << endl;
-    }
-    int _p = 1;
-};
-// 子类
-class Student : public Person
-{
-public:
-    virtual void BuyTicket()
-    {
-        cout << "买票-半价" << endl;
-    }
-    int _s = 2;
-};
+// class Person
+// {
+// public:
+//     virtual void BuyTicket()
+//     {
+//         cout << "买票-全价" << endl;
+//     }
+//     int _p = 1;
+// };
+// // 子类
+// class Student : public Person
+// {
+// public:
+//     virtual void BuyTicket()
+//     {
+//         cout << "买票-半价" << endl;
+//     }
+//     int _s = 2;
+// };
 
-int main()
-{
-    Person Mike;
-    Student Johnson;
-    Johnson._p = 3;
-    Person *p1 = &Mike;
-    Person *p2 = &Johnson;
-    p1->BuyTicket();
-    p2->BuyTicket();
-}
+// int main()
+// {
+//     Person Mike;
+//     Student Johnson;
+//     Johnson._p = 3;
+//     Person *p1 = &Mike;
+//     Person *p2 = &Johnson;
+//     p1->BuyTicket();
+//     p2->BuyTicket();
+// }
+
+// 父类
+// class Person
+// {
+// public:
+//     void Print()
+//     {
+//         cout << "name:" << _name << endl;
+//         cout << "age:" << _age << endl;
+//     }
+
+// protected:
+//     string _name="张三";
+//     int _age=18;
+// };
+
+// // 子类
+// class Student:public Person
+// {
+// protected:
+//     int _stuid;
+// };
+
+// class Teacher:public Person
+// {
+// protected:
+//     int _jobid;
+// };
+
+// class Person
+// {
+// private:
+//     string _name="张三";
+// };
+
+// class Student:public Person
+// {
+// public:
+//     void Print()
+//     {
+//         //在派生类当中访问基类的private成员，error!
+//         cout<<"name:"<<_name<<endl;
+//     }
+// protected:
+//     int _stuid;
+// };
+
+// //基类
+// class Person
+// {
+// protected:
+// 	string _name; //姓名
+// 	string _sex;  //性别
+// 	int _age;     //年龄
+// };
+// //派生类
+// class Student : public Person
+// {
+// protected:
+// 	int _stuid;   //学号
+// };
+
+// int main()
+// {
+//     Student s;
+//     Person p = s;     //派生类对象赋值给基类对象
+//     Person* ptr = &s; //派生类对象赋值给基类指针
+//     Person& ref = s;  //派生类对象赋值给基类引用
+
+//     return 0;
+// }
+
+// 父类
+// class Person
+// {
+// protected:
+//     int _num = 111;
+// };
+// // 子类
+// class Student : public Person
+// {
+// public:
+//     void func()
+//     {
+//         cout << "_num:" << Person::_num << endl;
+//     }
+
+// protected:
+//     int _num = 999;
+// };
+
+// int main()
+// {
+//     Student st;
+//     st.func();
+//     return 0;
+// }
+
+// 父类
+// class Person
+// {
+// public:
+//     void fun(int x)
+//     {
+//         cout << x << endl;
+//     }
+// };
+// // 子类
+// class Student : public Person
+// {
+// public:
+//     void fun(double x)
+//     {
+//         cout << x << endl;
+//     }
+// };
+// int main()
+// {
+//     Student s;
+//     s.fun(3.14);       // 直接调用子类当中的成员函数fun
+//     s.Person::fun(20); // 指定调用父类当中的成员函数fun
+//     return 0;
+// }
+
+// class Person
+// {
+// public:
+//     // 构造函数
+//     Person(const string &name = "zhangsan")
+//         : _name(name)
+//     {
+//         cout << "Person()" << endl;
+//     }
+//     // 拷贝构造
+//     Person(const Person &P)
+//         : _name(P._name)
+//     {
+//         cout << "Person(const Person& P)" << endl;
+//     }
+//     // 赋值运算符重载
+//     Person &operator=(const Person &P)
+//     {
+//         cout << "Person& operator=(const Person& p)" << endl;
+//         if (this != &P)
+//         {
+//             _name = P._name;
+//         }
+//         return *this;
+//     }
+//     // 析构函数
+//     ~Person()
+//     {
+//         cout << "~Person()" << endl;
+//     }
+
+// private:
+//     string _name;
+// };
+
+// class Student : public Person
+// {
+// public:
+//     // 构造函数
+//     Student(const string &name, int id)
+//         : Person(name) // 调用基类的构造函数初始化基类的那一部分
+//           ,
+//           _stuid(id) // 初始化派生类的成员
+//     {
+//         cout << "Student()" << endl;
+//     }
+//     // 拷贝构造
+//     Student(const Student &s)
+//         : Person(s), _stuid(s._stuid)
+//     {
+//         cout<<"Student(const Student &s)"<<endl;
+//     }
+//     // 赋值运算符重载
+//     Student& operator=(const Student& s)
+//     {
+//         cout<<"Student& operator=(const Student& s)"<<endl;
+//         if(this!=&s)
+//         {
+//             Person::operator=(s);// 调用基类的operator=完成基类部分成员的赋值
+//             _stuid=s._stuid;
+//         }
+//         return *this;
+//     }
+//     //析构函数
+// 	~Student()
+// 	{
+// 		cout << "~Student()" << endl;
+// 		//派生类的析构函数会在被调用完成后自动调用基类的析构函数
+// 	}
+
+// private:
+//     int _stuid;
+// };
+
+// class Student;
+// class Person
+// {
+// public:
+//     friend void Display(const Person &p, const Student &s);
+
+// protected:
+//     string _name; // 姓名
+// };
+// class Student : public Person
+// {
+// public:
+//     friend void Display(const Person &p, const Student &s);
+
+// protected:
+//     int _id;
+// };
+// void Display(const Person &p, const Student &s)
+// {
+//     cout << p._name << endl; // 可以访问
+//     cout << s._id << endl;   // 无法访问 在派生类中加了友元就可以访问
+// }
+// int main()
+// {
+//     Person p;
+//     Student s;
+//     Display(p, s);
+//     return 0;
+// }
+
+// class Person
+// {
+// public:
+//     // 构造函数
+//     Person()
+//     {
+//         _count++;
+//     }
+//     // 拷贝构造
+//     Person(const Person &p)
+//     {
+//         _count++;
+//     }
+
+// protected:
+//     string _name; // 姓名
+
+// public:
+//     static int _count;
+// };
+
+// int Person::_count = 0;
+// // 派生类
+// class Student : public Person
+// {
+// protected:
+//     int _id; // 学号
+// };
+
+// // 派生类
+// class Graduate : public Person
+// {
+// protected:
+//     string _seminarCourse; // 研究科目
+// };
+
+// int main()
+// {
+//     Student s1;
+//     Student s2(s1);
+//     Student s3;
+//     Graduate s4;
+//     cout << Person::_count << endl;  // 4
+//     cout << Student::_count << endl; // 4
+
+//     cout << &Person::_count << endl;
+//     cout << &Student::_count << endl;
+
+//     return 0;
+// }
+
+// 基类
+// class Person
+// {
+// public:
+//     string _name; // 姓名
+// };
+
+// // 派生类
+// class Student : public Person
+// {
+// protected:
+//     int _num; // 学号
+// };
+
+// // 派生类
+// class Teacher : public Person
+// {
+// protected:
+//     int _id; // 职工编号
+// };
+
+// // 派生类
+// // 多继承
+// class Assistant : public Student, public Teacher
+// {
+// protected:
+//     string _majorCourse; // 主修课程
+// };
+
+// int main()
+// {
+//     Assistant a;
+//     // a._name = "peter"; // 二义性：无法明确知道要访问哪一个_name
+
+//     // 显示指定访问哪个父类的成员
+//     a.Student::_name = "张同学";
+//     a.Teacher::_name = "王老师";
+
+//     return 0;
+// }
