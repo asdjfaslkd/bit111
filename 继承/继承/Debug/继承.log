@@ -1,0 +1,2 @@
+﻿  Test.cpp
+E:\2025code\C++\C++\继承\继承\Test.cpp(46,4): error C2614: “Student”: 非法的成员初始化:“_name”不是基或成员

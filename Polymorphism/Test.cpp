@@ -531,29 +531,29 @@ using namespace std;
 //     int _num; // 学号
 // };
 
-// // 派生类
-// class Teacher : public Person
-// {
-// protected:
-//     int _id; // 职工编号
-// };
+// 派生类
+class Teacher : public Person
+{
+protected:
+    int _id; // 职工编号
+};
 
-// // 派生类
-// // 多继承
-// class Assistant : public Student, public Teacher
-// {
-// protected:
-//     string _majorCourse; // 主修课程
-// };
+// 派生类
+// 多继承
+class Assistant : public Student, public Teacher
+{
+protected:
+    string _majorCourse; // 主修课程
+};
 
-// int main()
-// {
-//     Assistant a;
-//     // a._name = "peter"; // 二义性：无法明确知道要访问哪一个_name
+int main()
+{
+    Assistant a;
+    // a._name = "peter"; // 二义性：无法明确知道要访问哪一个_name
 
-//     // 显示指定访问哪个父类的成员
-//     a.Student::_name = "张同学";
-//     a.Teacher::_name = "王老师";
+    // 显示指定访问哪个父类的成员
+    a.Student::_name = "张同学";
+    a.Teacher::_name = "王老师";
 
-//     return 0;
-// }
+    return 0;
+}
